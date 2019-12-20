@@ -1,0 +1,5 @@
+Flask==0.12.2
+requests==2.18.1
+python-dotenv
+pymongo==3.4.0
+flask_pymongo==0.5.1
