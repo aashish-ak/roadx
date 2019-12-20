@@ -9,7 +9,7 @@ LOG = logger.get_root_logger(
     __name__, filename=os.path.join(ROOT_PATH, 'output.log'))
 
 
-@app.route('/getdata', methods=['GET', 'POST', 'DELETE', 'PATCH'])
+@app.route('/data', methods=['GET', 'POST', 'DELETE', 'PATCH'])
 def user():
     if request.method == 'GET':
         query = request.args

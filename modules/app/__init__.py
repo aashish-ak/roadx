@@ -20,9 +20,13 @@ class JSONEncoder(json.JSONEncoder):
             return str(o)
         return json.JSONEncoder.default(self, o)
 
-
+template_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+template_dir = os.path.join(template_dir, 'modules/app/dist')
+static_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+static_dir = os.path.join(static_dir, 'modules/app/dist/assets')
+print(template_dir)
 # create the flask object
-app = Flask(__name__)
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # add mongo url to flask config, so that flask_pymongo can use it to make connection
 # print(os.getenv('DB'))
