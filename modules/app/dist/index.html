@@ -114,8 +114,8 @@
             heatlist = [];
             for (i = 0; i < obj.length; i++) {
               heatlist.push([obj[i].lat,obj[i].lon]);
-            }            
-            var popup = L.popup();
+            }        
+            console.log(heatlist.length);    
             var geolocationMap = L.map('map', {
                 layers: MQ.mapLayer(),
                 center: [29.864649500000002 , 77.89387839999999],
@@ -139,9 +139,6 @@
                         lng: position.coords.longitude
                     };
 
-                    popup.setLatLng(latLng);
-                    popup.setContent('This is your current location');
-                    popup.openOn(geolocationMap);
 
                     geolocationMap.setView(latLng);
                     
