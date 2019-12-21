@@ -3,6 +3,7 @@ import os
 import sys
 import requests
 from flask import jsonify, request, make_response, send_from_directory, render_template
+from dbscan import cluster
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 os.environ.update({'ROOT_PATH': ROOT_PATH})
@@ -28,10 +29,22 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     """ static files serve """
     return render_template('index.html')
+
+@app.route('/dbscan_cluster', methods=['GET', 'POST'])
+def dbscan_cluster():
+  if(request.method == "POST"):
+    dataPoints = request.get_json()
+    # print(dataPoints)
+    labels = cluster(dataPoints)
+    # data = { "digit":1, "probability":2 }
+    # print data
+    return jsonify(data=labels.tolist())
+   
+    
 
 
 @app.route('/<path:path>')

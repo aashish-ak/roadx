@@ -3,3 +3,4 @@ requests
 python-dotenv
 pymongo
 flask_pymongo
+sklearn
