@@ -8,6 +8,7 @@
   <meta charset="utf-8" />
   <!-- <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png"> -->
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>RoadX</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
@@ -25,7 +26,7 @@
 
 <body class="index-page">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
+  <nav class="navbar navbar-expand-lg bg-black fixed-top navbar-inverse" color-on-scroll="500">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="presentation.html" rel="tooltip"
@@ -151,46 +152,14 @@
   <!-- End Navbar -->
   <div class="wrapper">
     {% block body %} {% endblock %}
-    <footer class="footer " data-background-color="black">
-      <div class="container">
-        <nav>
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com/">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="http://presentation.creative-tim.com/">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com/">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">
-                License
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright">
-          &copy;
-          <script>
-            document.write(new Date().getFullYear())
-          </script>, Designed by
-          <a href="http://www.invisionapp.com/" target="_blank">Invision</a>. Coded by
-          <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
-        </div>
-      </div>
-    </footer>
+    
   </div>
 
 </body>
 <!--   Core JS Files   -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<script src="{{ url_for('static', filename='js/leaflet-heat.js') }}" type="text/javascript"></script>
+<script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=IeRnTpoTLRe40ifnE3oMohIAid4tKgh7"></script>
 <script src="{{ url_for('static', filename='js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/core/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -218,6 +187,7 @@
   type="text/javascript"></script>
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{ url_for('static', filename='js/now-ui-kit9f1e.js') }}" type="text/javascript"></script>
+
 <script type="text/javascript">
   $(document).ready(function () {
     // the body of this function is in assets/js/now-ui-kit.js
