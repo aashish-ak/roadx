@@ -46,6 +46,10 @@ def dbscan_cluster():
    
     
 
+@app.route('/add/')
+def add():
+    """ static files serve """
+    return render_template('add.html')
 
 @app.route('/<path:path>')
 def static_proxy(path):
