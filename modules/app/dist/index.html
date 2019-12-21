@@ -28,6 +28,10 @@
     opacity: 70%;
     color: #ffffff
   }
+
+  #baba {
+    display: none;
+  }
 </style>
 <div class="page-header clear-filter" filter-color="orange">
   <div class="page-header-image" data-parallax="true" style="background-image: ;">
@@ -46,7 +50,7 @@
       <p class="description" style="color: #ffffff">Get the cost for 5 most critical roads<br><br>
       </p>
       <!-- <form role="form" id="contact-form" method="post"> -->
-        <div class="table-responsive">
+        <div id = "baba" class="table-responsive">
           <table class="table">
             <thead>
               <tr>
@@ -126,7 +130,7 @@
         zoom: 15
       });
       // L.control.zoom({ position: 'bottomleft' }).addTo(geolocationMap);
-      var heat = L.heatLayer(heatlist, { radius: 25 });
+      var heat = L.heatLayer(heatlist, { radius: 15 }).addTo(geolocationMap);
 
       function geolocationErrorOccurred(geolocationSupported, popup, latLng) {
         popup.setLatLng(latLng);
@@ -142,10 +146,6 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-
-          popup.setLatLng(latLng);
-          popup.setContent('This is your current location');
-          popup.openOn(geolocationMap);
 
           geolocationMap.setView(latLng);
 
@@ -182,7 +182,6 @@
           contentType: "application/json; charset=utf-8",
           type: 'POST',
           success: function (response) {
-            console.log("Response recieved!")
             // res = JSON.parse(response);
 
             // console.log(response.data.length)
@@ -210,8 +209,8 @@
               }
               else{
                 var polyline = L.polygon(lolo, {
-                  color : 'orange',
-                  weight: 30,
+                  color : 'black',
+                  weight: 25,
                   smooothFactor: 1
                 }).addTo(geolocationMap);
                 geolocationMap.fitBounds(polyline.getBounds());
@@ -220,10 +219,8 @@
               }
             }
 
+            $("#baba").show();
 
-
-
-            console.log(clustered_data)
 
           },
           error: function (error) {
