@@ -1596,3 +1596,7 @@
     -webkit-animation-name: Floatingx;
     -moz-animation-name: Floatingx;
 }
+
+.leaflet-popup-content , .leaflet-popup-content-wrapper {
+    background-color: black;
+}
