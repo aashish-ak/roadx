@@ -126,11 +126,27 @@
       var popup = L.popup();
       geolocationMap = L.map('map', {
         layers: MQ.mapLayer(),
-        center: [29.864649500000002, 77.89387839999999],
+        center: [29.865879473690175,77.90186405181885],
         zoom: 15
       });
       // L.control.zoom({ position: 'bottomleft' }).addTo(geolocationMap);
       var heat = L.heatLayer(heatlist, { radius: 15 }).addTo(geolocationMap);
+
+      marker = L.marker([29.870656951177953,77.89083480834961]).addTo(geolocationMap);
+      popupContent = document.createElement("img");
+      popupContent.src = "https://thumbs.dreamstime.com/b/leningrad-region-russia-april-highway-potholes-poor-quality-pavement-primary-stage-its-destruction-road-car-143374340.jpg";
+      marker.bindPopup(popupContent, {
+        maxWidth: "auto"
+      });
+      marker.openPopup();
+
+      marker1 = L.marker([29.869503306680194,77.88491517305374]).addTo(geolocationMap);
+      popupContent1 = document.createElement("img");
+      popupContent1.src = "https://i1.wp.com/geoawesomeness.com/wp-content/uploads/2013/10/lidar1.jpg?fit=500%2C334&ssl=1";
+      marker1.bindPopup(popupContent1, {
+        maxWidth: "auto"
+      });
+      marker1.openPopup();
 
       function geolocationErrorOccurred(geolocationSupported, popup, latLng) {
         popup.setLatLng(latLng);
